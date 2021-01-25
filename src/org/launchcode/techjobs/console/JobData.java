@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by LaunchCode
@@ -76,7 +77,7 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -91,7 +92,7 @@ public class JobData {
             ArrayList<String> rowInput = new ArrayList<>(row.keySet());
             for (String column : rowInput) {
                 String aValue = row.get(column);
-                if (!jobs.contains(row) && aValue.contains(value) ) {
+                if (!jobs.contains(row) && aValue.toLowerCase().contains(value.toLowerCase()) ) {
                     jobs.add(row);
                 }
             }
